@@ -1,0 +1,80 @@
+<div class="container mb-3">
+  <div class="row">
+    <div class="col-md-2 mb-3" data-controller="arquivos" data-action="click->arquivos#abrirModalPasta">
+      <div class="info-new-box">
+        <i class="bx bx-folder"></i>
+        <p>Criar Pasta</p>
+      </div>
+    </div>
+    <% if params[:controller] != "admin/home" %>
+      <div class="col-md-2 mb-3" data-controller="arquivos" data-action="click->arquivos#abrirModalArquivo">
+        <div class="info-new-box">
+          <i class="bx bx-file"></i>
+          <p>Novo Arquivo</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="modal fade" id="modalNovaPasta" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalNovoContato">Nova Pasta</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= form_with(model: Pasta.new, url: admin_pastas_url) do |form| %>
+          <div class="mb-3">
+            <%= form.label :nome, class: "form-label" %>
+            <%= form.text_field :nome, class:"form-control", required: true %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :link, class: "form-label" %>
+            <%= form.text_field :link, class:"form-control" %>
+          </div>
+          <div class="mb-3">
+            <%= form.label "Grupos:", class: "form-control-label"%>
+            <div class="row">
+              <% Grupo.order(nome: :asc).each do |grupo| %>
+                <div class="col-md-4">
+                  <input class="form-check-input" type="checkbox" value="<%= grupo.id %>" name="pasta[pasta_grupos_attributes][][grupo_id]" id="grupo-<%= grupo.id %>">
+                  <label class="form-check-label" for="grupo-<%= grupo.id %>"><%= grupo.nome %></label>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="mb-3">
+            <small >*Se nenhum grupo for selecionado, todos terão acesso a pasta</small>
+          </div>
+          <%= hidden_field_tag "origem_id", "#{params[:id]}"%>
+          <div >
+            <%= form.submit 'Salvar', class: "btn btn-primary"  %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modalNovoArquivo" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalNovoContato">Novo Arquivo</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= form_with(model: Midia.new, url: admin_midias_url) do |form| %>
+          <div class="mb-3">
+            <%= form.label :arquivo, class: "form-label" %>
+            <%= form.file_field :arquivo, class:"form-control", required: true %>
+          </div>
+          <%= hidden_field_tag "midia[pasta_id]", "#{params[:id]}"%>
+          <div >
+            <%= form.submit 'Salvar', class: "btn btn-primary"  %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

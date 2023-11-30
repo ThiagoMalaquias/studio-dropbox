@@ -28,7 +28,7 @@ class Admin::GruposController < Admin::ApplicationController
         format.html { redirect_to admin_grupo_url(@grupo), notice: "Grupo was successfully created." }
         format.json { render :show, status: :created, location: @grupo }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to admin_root_path, status: :unprocessable_entity }
         format.json { render json: @grupo.errors, status: :unprocessable_entity }
       end
     end
@@ -41,7 +41,7 @@ class Admin::GruposController < Admin::ApplicationController
         format.html { redirect_to admin_grupo_url(@grupo), notice: "Grupo was successfully updated." }
         format.json { render :show, status: :ok, location: @grupo }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { redirect_to admin_root_path, status: :unprocessable_entity }
         format.json { render json: @grupo.errors, status: :unprocessable_entity }
       end
     end

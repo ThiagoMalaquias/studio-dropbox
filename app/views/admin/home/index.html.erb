@@ -1,61 +1,18 @@
-<div class="container mb-3">
-  <div class="row">
-    <div class="col-md-2 mb-3">
-      <div class="info-box">
-        <i class="bx bx-map"></i>
-      </div>
-    </div>
-    <div class="col-md-2 mb-3">
-      <div class="info-box">
-        <i class="bx bx-map"></i>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render "admin/shared/novos_arquivos" %>
 <div class="section-title">
   <h2>Arquivos</h2>
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-2 mb-3">
-      <div class="info-box">
-        <i class="bx bx-map"></i>
+    <% @pastas.each do |pasta| %>
+      <div class="col-md-2 mb-3">
+        <a href="/admin/pastas/<%= pasta.id %>">
+          <div class="info-box">
+            <i class="bx bx-folder"></i>
+            <p><%= pasta.nome %></p>
+          </div>
+        </a>
       </div>
-    </div>
-    <div class="col-md-2 mb-3">
-      <div class="info-box">
-        <i class="bx bx-map"></i>
-      </div>
-    </div>
-    <div class="col-md-2 mb-3">
-      <div class="info-box">
-        <i class="bx bx-map"></i>
-      </div>
-    </div>
-    <div class="col-md-2 mb-3">
-      <div class="info-box">
-        <i class="bx bx-map"></i>
-      </div>
-    </div>
-    <div class="col-md-2 mb-3">
-      <div class="info-box">
-        <i class="bx bx-map"></i>
-      </div>
-    </div>
-    <div class="col-md-2 mb-3">
-      <div class="info-box">
-        <i class="bx bx-map"></i>
-      </div>
-    </div>
-    <div class="col-md-2 mb-3">
-      <div class="info-box">
-        <i class="bx bx-map"></i>
-      </div>
-    </div>
-    <div class="col-md-2 mb-3">
-      <div class="info-box">
-        <i class="bx bx-map"></i>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
