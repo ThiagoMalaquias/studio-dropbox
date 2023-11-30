@@ -1,14 +1,32 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Grupos</h1>
-
-<div id="grupos">
-  <% @grupos.each do |grupo| %>
-    <%= render grupo %>
-    <p>
-      <%= link_to "Show this grupo", grupo %>
-    </p>
-  <% end %>
+<div class="container mt-5 mb-3">
+  <div class="row">
+    <div class="col">
+      <h1>Grupos</h1>
+    </div>
+    <div class="col text-end">
+      <%= link_to "Novo Grupo", new_admin_grupo_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @grupos.each do |grupo| %>
+        <tr>
+          <td><%= grupo.nome%></td>
+          <td>
+            <div class="d-flex justify-content-end">
+              <%= link_to "Mostrar", admin_grupo_path(grupo), class: "btn btn-primary me-2" %>
+              <%= link_to "Editar", edit_admin_grupo_path(grupo), class: "btn btn-warning me-2" %>
+              <%= button_to "Apagar", admin_grupo_path(grupo), method: :delete, class: "btn btn-danger" %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-
-<%= link_to "New grupo", new_grupo_path %>

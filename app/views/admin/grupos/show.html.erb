@@ -1,10 +1,25 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @grupo %>
-
-<div>
-  <%= link_to "Edit this grupo", edit_grupo_path(@grupo) %> |
-  <%= link_to "Back to grupos", grupos_path %>
-
-  <%= button_to "Destroy this grupo", @grupo, method: :delete %>
+<div class="container mt-5 mb-3">
+  <div class="row">
+    <div class="col">
+      <h1>Mostrar Grupo</h1>
+    </div>
+    <div class="col text-end">
+      <%= link_to "Voltar", admin_grupos_path, class: "btn btn-dark" %>
+      <%= link_to "Editar", edit_admin_grupo_path(@grupo), class: "btn btn-warning" %>
+    </div>
+  </div>
+  <div id="<%= dom_id @grupo %>">
+    <p>
+      <strong>Nome:</strong>
+      <%= @grupo.nome %>
+    </p>
+    <p>
+      <strong>Usuarios:</strong>
+      <ul>
+        <% @grupo.usuarios.each do |usuario| %>
+          <li> <%= usuario.nome %> </li>
+        <% end %>
+      </ul>
+    </p>
+  </div>
 </div>

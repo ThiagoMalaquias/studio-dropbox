@@ -1,9 +1,11 @@
-<h1>New grupo</h1>
-
-<%= render "form", grupo: @grupo %>
-
-<br>
-
-<div>
-  <%= link_to "Back to grupos", grupos_path %>
+<div class="container mt-5 mb-3">
+  <div class="row">
+    <div class="col">
+      <h1>Novo Grupo</h1>
+    </div>
+    <div class="col text-end">
+      <%= link_to "Voltar", admin_grupos_path, class: "btn btn-dark" %>
+    </div>
+  </div>
+  <%= render "form", grupo: @grupo, url: admin_grupos_path %>
 </div>

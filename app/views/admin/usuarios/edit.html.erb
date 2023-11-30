@@ -1,10 +1,12 @@
-<h1>Editing usuario</h1>
-
-<%= render "form", usuario: @usuario %>
-
-<br>
-
-<div>
-  <%= link_to "Show this usuario", @usuario %> |
-  <%= link_to "Back to usuarios", usuarios_path %>
+<div class="container mt-5 mb-3">
+  <div class="row">
+    <div class="col">
+      <h1>Editar Usuario</h1>
+    </div>
+    <div class="col text-end">
+      <%= link_to "Voltar", admin_usuarios_path, class: "btn btn-dark" %>
+      <%= link_to "Mostrar", admin_usuario_path(@usuario), class: "btn btn-primary" %>
+    </div>
+  </div>
+  <%= render "form", usuario: @usuario, url: admin_usuario_path(@usuario)  %>
 </div>

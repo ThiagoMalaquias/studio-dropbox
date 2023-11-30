@@ -1,10 +1,12 @@
-<h1>Editing grupo</h1>
-
-<%= render "form", grupo: @grupo %>
-
-<br>
-
-<div>
-  <%= link_to "Show this grupo", @grupo %> |
-  <%= link_to "Back to grupos", grupos_path %>
+<div class="container mt-5 mb-3">
+  <div class="row">
+    <div class="col">
+      <h1>Editar Grupo</h1>
+    </div>
+    <div class="col text-end">
+      <%= link_to "Voltar", admin_grupos_path, class: "btn btn-dark" %>
+      <%= link_to "Mostrar", admin_grupo_path(@grupo), class: "btn btn-primary" %>
+    </div>
+  </div>
+  <%= render "form", grupo: @grupo, url: admin_grupo_path(@grupo)  %>
 </div>

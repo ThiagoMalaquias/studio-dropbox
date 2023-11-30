@@ -25,7 +25,7 @@ class Admin::GruposController < Admin::ApplicationController
 
     respond_to do |format|
       if @grupo.save
-        format.html { redirect_to grupo_url(@grupo), notice: "Grupo was successfully created." }
+        format.html { redirect_to admin_grupo_url(@grupo), notice: "Grupo was successfully created." }
         format.json { render :show, status: :created, location: @grupo }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class Admin::GruposController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @grupo.update(grupo_params)
-        format.html { redirect_to grupo_url(@grupo), notice: "Grupo was successfully updated." }
+        format.html { redirect_to admin_grupo_url(@grupo), notice: "Grupo was successfully updated." }
         format.json { render :show, status: :ok, location: @grupo }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class Admin::GruposController < Admin::ApplicationController
     @grupo.destroy!
 
     respond_to do |format|
-      format.html { redirect_to grupos_url, notice: "Grupo was successfully destroyed." }
+      format.html { redirect_to admin_grupo_url, notice: "Grupo was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -65,6 +65,6 @@ class Admin::GruposController < Admin::ApplicationController
 
     # Only allow a list of trusted parameters through.
     def grupo_params
-      params.require(:grupo).permit(:nome)
+      params.require(:grupo).permit(:nome, { grupo_usuarios_attributes: [:id, :usuario_id, :_destroy] })
     end
 end

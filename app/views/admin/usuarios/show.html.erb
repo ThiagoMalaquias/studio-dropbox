@@ -1,10 +1,21 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @usuario %>
-
-<div>
-  <%= link_to "Edit this usuario", edit_usuario_path(@usuario) %> |
-  <%= link_to "Back to usuarios", usuarios_path %>
-
-  <%= button_to "Destroy this usuario", @usuario, method: :delete %>
+<div class="container mt-5 mb-3">
+  <div class="row">
+    <div class="col">
+      <h1>Mostrar Usuario</h1>
+    </div>
+    <div class="col text-end">
+      <%= link_to "Voltar", admin_usuarios_path, class: "btn btn-dark" %>
+      <%= link_to "Editar", edit_admin_usuario_path(@usuario), class: "btn btn-warning" %>
+    </div>
+  </div>
+  <div id="<%= dom_id @usuario %>">
+    <p>
+      <strong>Nome:</strong>
+      <%= @usuario.nome %>
+    </p>
+    <p>
+      <strong>Email:</strong>
+      <%= @usuario.email %>
+    </p>
+  </div>
 </div>
