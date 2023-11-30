@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   # Defines the root path route ("/")
-  root "home#index"
-
   namespace :admin do
     root "home#index"
 
@@ -15,4 +13,13 @@ Rails.application.routes.draw do
     post 'login', to: 'login#logar'
     get 'sair', to: 'login#deslogar'
   end
+
+
+  root "home#index"
+  resources :pastas
+
+
+  get 'login', to: 'login#index'
+  post 'login', to: 'login#logar'
+  get 'sair', to: 'login#deslogar'
 end

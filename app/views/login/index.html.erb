@@ -1,21 +1,22 @@
  <style>
-  body{background-color: #075e54;}
-  .login{background-color: #fff;margin: 100px auto; max-width: 476px;padding: 10px}
+  body{ background-color: #e03a3c; }
+  .login{ background-color: #fff;margin: 100px auto; max-width: 476px;padding: 10px }
 </style>
-<div class="login">
-  <div class="mb-4 text-center">
-    <h4>Para entrar no sistema, digite seu número de telefone</h4>
+<section id="contact" class="contact">
+  <div class="container login"  data-aos="fade-up">
+    <%= form_for("login", { role: "form", class: "php-email-form", method: :post, "data-aos": "fade-up", "data-aos-delay": "100" }) do |f| %>
+      <h5 class="mb-4">Login</h5>
+      <div class="form-group">
+        <%= f.label :email, class: "form-label" %>
+        <%= f.text_field :email, class:"form-control", required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :senha, class: "form-label" %>
+        <%= f.password_field :senha, class:"form-control", required: true %>
+      </div>
+      <div class="text-center">
+        <button type="submit">Entrar</button>
+      </div>
+    <% end %>
   </div>
-  <%= form_for("login", { role: "form" }) do |f| %>
-    <div class="mb-3">
-      <%= f.label :telefone, class: "form-label" %>
-      <%= f.text_field :telefone, class:"form-control", placeholder: "(00) 90000-0000", required: true %>
-    </div>
-    <%= f.submit 'Entrar', class: "btn btn-light mt-3 w-100" %>
-  <% end %>
-</div>
-<script>
-  $(document).ready(function () {
-    $('#login_telefone').mask('(00) 00000-0000');
-  })
-</script>
+</section>

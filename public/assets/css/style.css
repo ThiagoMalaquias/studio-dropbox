@@ -1331,6 +1331,7 @@ section {
   box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
   padding: 15px;
   border-radius: 4px;
+  word-break: break-all;
 }
 
 .contact .info-box i {

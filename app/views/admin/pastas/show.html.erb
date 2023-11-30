@@ -13,22 +13,26 @@
   <div class="row">
     <% @pastas.each do |pasta| %>
       <div class="col-md-2 mb-3">
-        <a href="/admin/pastas/<%= pasta.id %>">
-          <div class="info-box">
-            <i class="bx bx-folder"></i>
-            <p><%= pasta.nome %></p>
-          </div>
-        </a>
-      </div>
-    <% end %>
-    <% @midias.each do |midia| %>
-      <div class="col-md-2 mb-3">
-        <a href="<%= rails_blob_url(midia.arquivo) %>" target="_blank">
-          <div class="info-box">
-            <p><%= midia.arquivo.filename %></p>
-          </div>
-        </a>
-      </div>
-    <% end %>
+        <% if pasta.link.present? %>
+          <a href="<%= pasta.link %>" target="_blank">
+          <% else %>
+            <a href="/admin/pastas/<%= pasta.id %>">
+            <% end %>
+            <div class="info-box">
+              <i class="bx bx-folder"></i>
+              <p><%= pasta.nome %></p>
+            </div>
+          </a>
+        </div>
+      <% end %>
+      <% @midias.each do |midia| %>
+        <div class="col-md-2 mb-3">
+          <a href="<%= rails_blob_url(midia.arquivo) %>" target="_blank">
+            <div class="info-box">
+              <p><%= midia.arquivo.filename %></p>
+            </div>
+          </a>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>

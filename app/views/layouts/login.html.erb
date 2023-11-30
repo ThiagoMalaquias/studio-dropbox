@@ -30,7 +30,13 @@
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top d-flex align-items-center">
       <div class="container d-flex align-items-center">
-        <h1 class="logo me-auto"><a href="index.html">Studio Dropbox<span>.</span></a></h1>
+        <h1 class="logo me-auto">
+          <%if params[:controller] == "admin/login"%>
+            Admin Studio Dropbox<span>.</span>
+          <% else %>
+            Studio Dropbox<span>.</span>
+          <% end %>
+        </h1>
       </div>
     </header>
     <!-- End Header -->

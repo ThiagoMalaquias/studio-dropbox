@@ -1,5 +1,12 @@
+<div class="container">
+  <% if @pasta.origem_id.present?%>
+    <a href="/pastas/<%= @pasta.origem_id%>">Voltar</a>
+  <% else %>
+    <a href="/">Voltar</a>
+  <% end %>
+</div>
 <div class="section-title">
-  <h2>Arquivos</h2>
+  <h2><%= @pasta.nome %></h2>
 </div>
 <div class="container">
   <div class="row">
@@ -13,6 +20,15 @@
             <div class="info-box">
               <i class="bx bx-folder"></i>
               <p><%= pasta.nome %></p>
+            </div>
+          </a>
+        </div>
+      <% end %>
+      <% @midias.each do |midia| %>
+        <div class="col-md-2 mb-3">
+          <a href="<%= rails_blob_url(midia.arquivo) %>" target="_blank">
+            <div class="info-box">
+              <p><%= midia.arquivo.filename %></p>
             </div>
           </a>
         </div>
