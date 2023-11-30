@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Midias</h1>
+
+<div id="midias">
+  <% @midias.each do |midia| %>
+    <%= render midia %>
+    <p>
+      <%= link_to "Show this midia", midia %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New midia", new_midia_path %>

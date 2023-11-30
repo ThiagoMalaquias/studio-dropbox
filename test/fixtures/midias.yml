@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  arquivo: MyText
+  pasta: one
+
+two:
+  arquivo: MyText
+  pasta: two

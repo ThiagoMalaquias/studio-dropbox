@@ -1,0 +1,12 @@
+<div class="container mt-5 mb-3">
+  <div class="row">
+    <div class="col">
+      <h1>Editar Administrador</h1>
+    </div>
+    <div class="col text-end">
+      <%= link_to "Voltar", admin_administradores_path, class: "btn btn-dark" %>
+      <%= link_to "Mostrar", admin_administrador_path(@administrador), class: "btn btn-primary" %>
+    </div>
+  </div>
+  <%= render "form", administrador: @administrador, url: admin_administrador_path(@administrador)  %>
+</div>

@@ -1,0 +1,22 @@
+ <style>
+  body{ background-color: #e03a3c; }
+  .login{ background-color: #fff;margin: 100px auto; max-width: 476px;padding: 10px }
+</style>
+<section id="contact" class="contact">
+  <div class="container login"  data-aos="fade-up">
+    <%= form_for("login", { role: "form", class: "php-email-form", method: :post, "data-aos": "fade-up", "data-aos-delay": "100" }) do |f| %>
+      <h5 class="mb-4">Login</h5>
+      <div class="form-group">
+        <%= f.label :email, class: "form-label" %>
+        <%= f.text_field :email, class:"form-control", required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :senha, class: "form-label" %>
+        <%= f.password_field :senha, class:"form-control", required: true %>
+      </div>
+      <div class="text-center">
+        <button type="submit">Entrar</button>
+      </div>
+    <% end %>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+<%= form_with(model: administrador, url: url) do |form| %>
+  <% if administrador.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(administrador.errors.count, "error") %> prohibited this administrador from being saved:</h2>
+      <ul>
+        <% administrador.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="mb-3">
+    <%= form.label :nome, class: "form-label" %>
+    <%= form.text_field :nome, class:"form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :email, class: "form-label" %>
+    <%= form.email_field :email, class:"form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :senha, class: "form-label" %>
+    <%= form.password_field :senha, class:"form-control" %>
+  </div>
+  <div >
+    <%= form.submit 'Salvar', class: "btn btn-primary"  %>
+  </div>
+<% end %>

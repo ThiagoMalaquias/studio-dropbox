@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @pasta %>
+
+<div>
+  <%= link_to "Edit this pasta", edit_pasta_path(@pasta) %> |
+  <%= link_to "Back to pastas", pastas_path %>
+
+  <%= button_to "Destroy this pasta", @pasta, method: :delete %>
+</div>

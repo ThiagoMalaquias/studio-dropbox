@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @midia %>
+
+<div>
+  <%= link_to "Edit this midia", edit_midia_path(@midia) %> |
+  <%= link_to "Back to midias", midias_path %>
+
+  <%= button_to "Destroy this midia", @midia, method: :delete %>
+</div>
