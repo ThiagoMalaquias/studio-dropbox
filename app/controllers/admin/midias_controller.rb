@@ -17,10 +17,11 @@ class Admin::MidiasController < Admin::ApplicationController
 
 
   def destroy
+    pasta = @midia.pasta
     @midia.destroy!
 
     respond_to do |format|
-      format.html { redirect_to midias_url, notice: "Midia was successfully destroyed." }
+      format.html { redirect_to admin_pasta_url(pasta), notice: "Midia was successfully destroyed." }
       format.json { head :no_content }
     end
   end
