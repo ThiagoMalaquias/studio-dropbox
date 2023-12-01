@@ -13,13 +13,21 @@
       <strong>Nome:</strong>
       <%= @grupo.nome %>
     </p>
-    <p>
+    <div>
       <strong>Usuarios:</strong>
       <ul>
         <% @grupo.usuarios.each do |usuario| %>
           <li> <%= usuario.nome %> </li>
         <% end %>
       </ul>
-    </p>
+    </div>
+    <div>
+      <strong>Pastas:</strong>
+      <ul>
+        <% @grupo.pastas.each do |pasta| %>
+          <li> <%= pasta.nome %> </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>

@@ -27,11 +27,12 @@
       <% end %>
       <% @midias.each do |midia| %>
         <div class="col-md-2 mb-3">
-          <a href="<%= rails_blob_url(midia.arquivo) %>" target="_blank">
-            <div class="info-box">
+          <div class="info-midia">
+            <i class="bx bx-trash"></i>
+            <a href="<%= rails_blob_url(midia.arquivo) %>" target="_blank">
               <p><%= midia.arquivo.filename %></p>
-            </div>
-          </a>
+            </a>
+          </div>
         </div>
       <% end %>
     </div>

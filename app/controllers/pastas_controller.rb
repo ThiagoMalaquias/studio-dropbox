@@ -2,7 +2,7 @@ class PastasController < ApplicationController
   before_action :set_pasta, only: %i[ show update destroy ]
 
   def show
-    @pastas = @pasta.todas_pastas
+    @pastas = @user.pastas.where(origem_id: @pasta.id)
     @midias = @pasta.midias
   end
 
