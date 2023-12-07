@@ -67,7 +67,7 @@
         <%= form_with(model: Midia.new, url: admin_midias_url) do |form| %>
           <div class="mb-3">
             <%= form.label :arquivo, class: "form-label" %>
-            <%= form.file_field :arquivo, class:"form-control", accept: "image/*", required: true %>
+            <%= form.file_field :arquivo, class:"form-control", required: true %>
           </div>
           <%= hidden_field_tag "midia[pasta_id]", "#{params[:id]}"%>
           <div >

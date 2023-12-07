@@ -13,6 +13,8 @@ class Admin::MidiasController < Admin::ApplicationController
         format.json { render json: @midia.errors, status: :unprocessable_entity }
       end
     end
+  rescue
+    redirect_to admin_pasta_url(@midia.pasta)
   end
 
 
