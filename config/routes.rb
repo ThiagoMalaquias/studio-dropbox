@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   root "home#index"
   resources :pastas
-
+  resources :midias, only: [:show]
 
   get 'login', to: 'login#index'
   post 'login', to: 'login#logar'

@@ -31,9 +31,9 @@
             <%= button_to admin_midia_path(midia), method: :delete, class: "btn" do %>
               <i class="bx bx-trash"></i>
             <% end %>
-            <a href="<%= rails_blob_url(midia.arquivo) %>" target="_blank">
+            <div data-controller="arquivos" data-arquivos-id-value="<%= midia.id %>" data-action="click->arquivos#abrirArquivo">
               <p><%= midia.arquivo.filename %></p>
-            </a>
+            </div>
           </div>
         </div>
       <% end %>

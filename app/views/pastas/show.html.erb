@@ -26,11 +26,11 @@
       <% end %>
       <% @midias.each do |midia| %>
         <div class="col-md-2 mb-3">
-          <a href="<%= rails_blob_url(midia.arquivo) %>" target="_blank">
+          <div data-controller="arquivos" data-arquivos-id-value="<%= midia.id %>" data-action="click->arquivos#abrirArquivo">
             <div class="info-box">
               <p><%= midia.arquivo.filename %></p>
             </div>
-          </a>
+          </div>
         </div>
       <% end %>
     </div>
